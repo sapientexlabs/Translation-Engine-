@@ -1,0 +1,60 @@
+.jobdetails-headline {
+    color: white;
+}
+
+.header-jobdetails {
+    background-color: brown;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+
+/* Css formating from https://www.w3schools.com/howto/howto_css_inline_form.asp */
+
+.jobrating-jobdetails{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+}
+
+.jobrating-jobdetails label {
+    margin: 5px 10px 5px 0;
+}
+
+
+.jobrating-jobdetails input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.jobrating-jobdetails button {
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    border: 1px solid #ddd;
+    color: white;
+}
+
+.jobrating-jobdetails button:hover {
+    background-color: royalblue;
+}
+  
+
+@media (max-width: 800px) {
+    .jobrating-jobdetails input {
+      margin: 10px 0;
+    }
+  
+    .jobrating-jobdetails {
+      flex-direction: column;
+      align-items: stretch;
+    }
+}
+  

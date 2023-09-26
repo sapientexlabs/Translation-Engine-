@@ -1,0 +1,39 @@
+.jobupload-form {
+    padding: 4vw;
+}
+
+.jobupload-headline {
+    color: tomato;
+}
+
+.jobupload-field {
+    display:grid;
+    grid-auto-flow: row;
+    row-gap: 1rem;
+    min-width: 500px;
+}
+
+.jobUploadContainer {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 20px 20px; 
+    grid-template-areas: 
+      "target source"
+      "browse upload"; 
+  }
+  .target { grid-area: target; }
+  .source { grid-area: source; }
+  .browse { grid-area: browse; }
+  .upload { grid-area: upload; margin-top: 36.8px; }
+
+  @media only screen and (max-width: 1024px) {
+    .jobUploadContainer {
+        grid-template-areas: 
+        "target"
+        "upload"
+        "source" 
+        "browse";
+    }
+    .upload { margin-top: 0px; }
+  }

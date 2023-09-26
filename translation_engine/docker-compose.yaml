@@ -1,0 +1,53 @@
+version: "3.3"
+
+services:
+  untertitle-gui:
+    build: ./gui
+    command: npm start
+    volumes:
+      - ./gui:/app
+      - untertitle-media:/app/public/untertitle-media
+    ports:
+      - 7000:80
+    depends_on:
+      - untertitle-api
+  untertitle-api:
+    build: ./api
+    command: nodemon app/app.js
+    volumes:
+      - ./api:/app
+      - untertitle-media:/untertitle-media
+    ports:
+      - 7001:80
+    depends_on:
+      - untertitle-db
+  untertitle-db:
+    image: 'bitnami/mariadb:latest'
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=untertitle_db
+      - MARIADB_USER=ut
+      - MARIADB_PASSWORD=ut
+    volumes:
+      - ./database-migration/release.sql:/docker-entrypoint-initdb.d/release.sql
+    ports:
+      - 7002:3306
+  untertitle-db-admin:
+    image: adminer
+    ports:
+      - 7003:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: untertitle-db
+    depends_on:
+      - untertitle-db
+  untertitle-core:
+    build: ./core
+    volumes:
+      - ./core:/app
+      - untertitle-media:/untertitle-media
+    depends_on:
+      - untertitle-db
+    restart: on-failure
+
+volumes:
+  untertitle-media:

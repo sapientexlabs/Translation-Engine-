@@ -1,0 +1,61 @@
+
+.joblist-headline {
+    color: cornflowerblue;
+}
+
+.header {
+    min-height: 10vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+table {
+    display: wrap;
+    flex-direction: row;
+}
+
+td {
+/* width: 100%; */
+justify-content: center;
+    padding-left: 10px;
+}
+
+th {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.job-list-container {
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-top: 3em;
+}
+
+.jobListContainer {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    gap: 20px 20px; 
+    padding-bottom: 20px;
+    grid-template-areas: 
+      "jobId ."
+      "label ."
+      "rating ."
+      "sourceLanguage ."
+      "targetLanguage ."
+      "created ."
+      "lastUpdated ."
+      "state ."
+      "actions ."; 
+  }
+  .jobId { grid-area: jobId; }
+  .label { grid-area: label; }
+  .rating { grid-area: rating; }
+  .sourceLanguage { grid-area: sourceLanguage; }
+  .targetLanguage { grid-area: targetLanguage; }
+  .created { grid-area: created; }
+  .lastUpdated { grid-area: lastUpdated; }
+  .state { grid-area: state; }
+  .actions { grid-area: actions; }
